@@ -1,11 +1,14 @@
 name: My test action
 on: [push, pull_request]
 jobs:
-  Action-Test:
+  My-Job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: rickstaa/action-black@v1
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Black Checker
+        uses: rickstaa/action-black@v1
         with:
           black_args: ". --check"
-      - run: echo "${{github.actor}} ran this action on the ${{ github.repository }} repository. The status is... ${{ job.status }}!"
+      - name: Action Status
+        run: echo "${{github.actor}} ran this action on the ${{ github.repository }} repository. The status is... ${{ job.status }}!"
