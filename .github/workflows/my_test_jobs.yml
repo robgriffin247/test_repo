@@ -18,3 +18,9 @@ jobs:
     steps:
       - name: Action Status
         run: echo "${{github.actor}} ran this action on the ${{ github.repository }} repository. The status is... ${{ job.status }}!"
+
+  My-Third-Job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Third Job
+        run: echo "This is running in parallel"
