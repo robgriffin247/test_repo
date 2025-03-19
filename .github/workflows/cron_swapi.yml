@@ -2,7 +2,7 @@ name: swapi cron
 
 on:
   schedule:
-    - cron: '0 0 * * 1'
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
