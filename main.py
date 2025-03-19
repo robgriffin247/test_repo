@@ -24,7 +24,7 @@ def api_wan(resource="films"):
 
     json_data = response.json()
 
-    next_url = response["next"]
+    next_url = json_data["next"]
 
     return next_url
 
