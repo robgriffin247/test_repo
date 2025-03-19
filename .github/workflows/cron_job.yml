@@ -1,4 +1,4 @@
-name: swapi cron
+name: logging cron
 
 on:
   push:
