@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
 
   swapi:
-      - name: get swapi films data
+      - name: get-swapi
         run: |
           echo 'running...'
           python main.py 
