@@ -13,7 +13,7 @@ def api_wan(resource='films'):
     
     response.raise_for_status()
 
-    return response.data
+    return response.json
 
 if __name__ == "__main__":
     print(api_wan(sys.argv[1]))
