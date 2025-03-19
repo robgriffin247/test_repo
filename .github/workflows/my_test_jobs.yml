@@ -23,4 +23,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Third Job
-        run: echo "This is running in parallel"
+        run: python3 main.py
