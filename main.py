@@ -1,3 +1,4 @@
+import sys
 import httpx
 
 
@@ -8,4 +9,5 @@ def api_wan(resource='films'):
     return response
 
 if __name__ == "__main__":
-    print(api_wan())
+    #print(api_wan(sys.argv[0]))
+    print(sys.argv)

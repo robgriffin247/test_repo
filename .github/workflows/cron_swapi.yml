@@ -3,7 +3,7 @@ name: swapi cron
 on:
   push:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 1 * * *'
 
 jobs:
   build:
@@ -23,7 +23,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: test
+  swapi:
+      - name: get swapi films data
         run: |
           echo 'running...'
-          python main.py
+          python main.py 
