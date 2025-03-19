@@ -26,7 +26,7 @@ def api_wan(resource="films"):
 
     next_url = json_data["next"]
 
-    return json_data["content"]
+    return json_data["results"]
 
 
 if __name__ == "__main__":
