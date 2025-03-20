@@ -31,7 +31,6 @@ jobs:
       - name: commit log
         uses: EndBug/add-and-commit@v9
         with:
-          add: |
-          - actions_log.txt
+          add: 'actions_log.txt'
           authour_name: ${{ github.actor }}
-          ommmit_message: "Actions log updated"
+          ommmit_message: 'Actions log updated'
