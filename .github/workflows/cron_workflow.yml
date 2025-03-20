@@ -26,3 +26,10 @@ jobs:
       - name: run main
         run: |
           python main.py
+
+      - name: discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "The hourly CRON job completed..."
