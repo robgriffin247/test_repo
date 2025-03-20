@@ -13,7 +13,7 @@ jobs:
         run: |
           RESPONSE=$(curl -H "Content-Type: application/json" -X POST -d '{
             "username": "PA",
-            "content": "${{ github }} <@1004790342261936369>",
+            "content": "${{ github.action }}\n<@1004790342261936369>",
             "allowed_mentions": { "users": ["1004790342261936369"]}
           }' ${{ secrets.DISCORD_WEBHOOK }})
           echo "Webhook server response: $RESPONSE"
