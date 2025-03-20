@@ -3,7 +3,7 @@ name: cron_workflow
 on:
   push:
   schedule:
-    - cron: '5/15 0 * * *' # every 15 minute
+    - cron: '*/15 0 * * *' # every 15 minute
     #- cron: '*30 5 1 * *' # 5:30 on first of every month
 
 jobs:
