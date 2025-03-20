@@ -12,7 +12,7 @@ jobs:
       run: |
         RESPONSE=$(curl -H "Content-Type: application/json" -X POST -d '{
           "username": "DS",
-          "content": "<@Rob Griffin> set a new Alpe du Zwift PR of 48:12 :mount_fuji:",
-          "allowed_mentions": { "users": ["Rob Griffin"]}
+          "content": "<@1004790342261936369> set a new Alpe du Zwift PR of 48:12 :mount_fuji:",
+          "allowed_mentions": { "users": ["1004790342261936369"]}
         }' ${{ secrets.DISCORD_WEBHOOK }})
         echo "Webhook server response: $RESPONSE"
