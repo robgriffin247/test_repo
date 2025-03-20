@@ -2,15 +2,16 @@ name: Discord Service
 
 on:
   schedule:
-    - cron: '11/20 * * * *'
+    - cron: '13/20 * * * *'
   push:
 
 jobs:
   get_trigger_type:
     runs-on: ubuntu-latest
     steps:
-      run: |
-        echo "Hello"
+      - name: Send Greeting
+        run: |
+          echo "Hello"
     
 
   send_message:
