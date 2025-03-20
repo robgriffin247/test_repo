@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  send_message:
+    :
     runs-on: ubuntu-latest
     steps:
       - name: Send a request to webhook
