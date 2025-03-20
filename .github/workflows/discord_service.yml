@@ -2,7 +2,7 @@ name: Discord Service
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '20 */2 * * *'
 
 jobs:
   send_message:
