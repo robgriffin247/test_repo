@@ -2,7 +2,7 @@ name: Discord Service
 
 on:
   schedule:
-    - cron: '16 15 20 * *'
+    - cron: '30 14 * * FRI'
   push:
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
         run: |
           RESPONSE=$(curl -H "Content-Type: application/json" -X POST -d '{
             "username": "PA",
-            "content": "check the water pressure <@1004790342261936369>",
+            "content": "Timesheets <@1004790342261936369>",
             "allowed_mentions": { "users": ["1004790342261936369"]}
           }' ${{ secrets.DISCORD_WEBHOOK }})
           echo "Webhook server response: $RESPONSE"
