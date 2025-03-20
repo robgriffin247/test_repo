@@ -16,4 +16,4 @@ jobs:
           DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
         uses: Ilshidur/action-discord@master
         with:
-          args: "It's time to update the budget @griffinevo"
+          args: "This message appears in discord"

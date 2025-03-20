@@ -1,8 +1,8 @@
-name: Hourly Job
+name: Thursday
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '15 10 * * THU'
     #- cron: '*30 5 1 * *' # 5:30 on first of every month
 
 jobs:
@@ -33,4 +33,4 @@ jobs:
           DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
         uses: Ilshidur/action-discord@master
         with:
-          args: "The hourly CRON job completed..."
+          args: "The thursday 10:15 job has run!"
