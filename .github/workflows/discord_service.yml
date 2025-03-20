@@ -1,9 +1,8 @@
 name: Discord Service
 
-on: 
-  push:
+on:
   schedule:
-    - cron: '43 * * * *'
+    - cron: '50 13 * * THU'
 
 jobs:
   send_message:
