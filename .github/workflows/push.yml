@@ -19,7 +19,7 @@ jobs:
       - name: generate embeds
         id: embeds
         run: |
-          echo "embed_content=[{'title': 'Hello!', 'description': 'Hi! :grinning:'}]" >> $GITHUB_OUTPUT
+          echo "embed_content={'conent': Test message'}" >> $GITHUB_OUTPUT
 
   discord:
     runs-on: ubuntu-latest
