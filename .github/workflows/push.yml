@@ -29,7 +29,7 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
-          DISCORD_EMBEDS: ${{ toJson(needs.output_job.outputs) }}
+          #DISCORD_EMBEDS: ${{ toJson(needs.output_job.outputs) }}
         uses: Ilshidur/action-discord@master
         with:
           args: "Pushed! ${{ toJson(needs.output_job.outputs) }}"
