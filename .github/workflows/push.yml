@@ -19,7 +19,7 @@ jobs:
       - name: generate userid
         id: userid
         run: |
-          echo 'id="[{\"content\": \"hello\" "}]"' >> $GITHUB_OUTPUT
+          echo 'id="{\"content\": \"hello\" "}"' >> $GITHUB_OUTPUT
 
 
   discord:
