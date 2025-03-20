@@ -19,7 +19,7 @@ jobs:
       - name: generate embeds
         id: embeds
         run: |
-          echo 'embed_content="{}"' >> $GITHUB_OUTPUT
+          echo 'embed_content="{mentions:[\"griffinevo\"]}"' >> $GITHUB_OUTPUT
           echo $GITHUB_OUTPUT
 
 
