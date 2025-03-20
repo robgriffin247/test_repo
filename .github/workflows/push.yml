@@ -10,14 +10,27 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
 
-  discord:
+  generate_output:
     runs-on: ubuntu-latest
     needs: setup
+    outputs:
+      tags: ${{ steps.out.tags}}
+    steps:
+      - name: generate output
+        id: out
+        run: |
+          echo 'tags="embeds":[{ "allowed_mentions": { "users": ["griffinevo"] }]' >> $GITHUB_OUTPUT
+
+
+  discord:
+    runs-on: ubuntu-latest
+    needs: generate-output
     steps:
       - name: discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
+          DISCORD_EMBEDS: ${{ toJson(needs.generate_output.) }}
         uses: Ilshidur/action-discord@master
         with:
           args: "Pushed!"
