@@ -11,10 +11,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: discord notification
+        tag: 'griffinevo'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
-          DISCORD_EMBEDS: ${{ toJson('{"content": "@everyone <@&role-id> <@user-id>", "allowed_mentions": { "users": ["griffinevo"]  }}') }}
+          DISCORD_EMBEDS: ${{ toJson(tag) }}
         uses: Ilshidur/action-discord@master
         with:
           args: "It's time to update the budget @griffinevo"
