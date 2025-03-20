@@ -1,12 +1,10 @@
-name: Thursday
+name: Reminder Service
 
 on:
   schedule:
     - cron: '52 12 * * THU'
-    #- cron: '*30 5 1 * *' # 5:30 on first of every month
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
