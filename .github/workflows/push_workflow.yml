@@ -2,7 +2,7 @@ name: push_workflow
 
 on:
   schedule:
-    - cron: 0 10 20 * *
+    - cron: 55 9 20 * *
 
 jobs:
 
@@ -15,6 +15,7 @@ jobs:
       - name: discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
         uses: Ilshidur/action-discord@master
         with:
           args: "It's time to update the budget @griffinevo"

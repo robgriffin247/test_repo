@@ -30,6 +30,7 @@ jobs:
       - name: discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
         uses: Ilshidur/action-discord@master
         with:
           args: "The hourly CRON job completed..."
