@@ -1,0 +1,19 @@
+name: test
+
+on: push
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "It's time to update the budget @griffinevo"
