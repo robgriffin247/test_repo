@@ -1,8 +1,8 @@
-name: cron_workflow
+name: Hourly Job
 
 on:
   schedule:
-    - cron: '45 * * * *'
+    - cron: '0 * * * *'
     #- cron: '*30 5 1 * *' # 5:30 on first of every month
 
 jobs:
