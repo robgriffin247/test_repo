@@ -3,7 +3,7 @@ name: Reminder Service
 on: 
   push:
   schedule:
-    - cron: '28 * * * *'
+    - cron: '37 * * * *'
 
 jobs:
   build:
