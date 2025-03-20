@@ -1,6 +1,8 @@
 name: push_workflow
 
-on: push
+on:
+  schedule:
+    - cron: 0 10 20 * *
 
 jobs:
 
@@ -15,4 +17,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+          args: "It's time to update the budget!"
