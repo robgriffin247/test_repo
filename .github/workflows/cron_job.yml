@@ -1,4 +1,4 @@
-name: logging cron
+name: cron_workflow
 
 on:
   push:
@@ -7,12 +7,12 @@ on:
     #- cron: '*30 5 1 * *' # 5:30 on first of every month
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: setup python
         uses: actions/setup-python@v4
@@ -24,13 +24,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: log runs
+      - name: run main
         run: |
           python main.py
-      
-      - name: commit log
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: 'actions_log.txt'
-          authour_name: ${{ github.actor }}
-          ommmit_message: 'Actions log updated'
