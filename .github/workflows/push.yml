@@ -12,7 +12,7 @@ jobs:
       run: |
         RESPONSE=$(curl -H "Content-Type: application/json" -X POST -d '{
           "username": "The Assistant Bot!",
-          "content": "Hello <@griffinevo>!",
+          "content": "Hello <@user-id>!",
           "allowed_mentions": { "users": ["griffinevo"] }
         }' ${{ secrets.DISCORD_WEBHOOK }})
         echo "Webhook server response: $RESPONSE"
