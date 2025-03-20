@@ -1,0 +1,35 @@
+name: On Push
+
+on: push
+
+jobs:
+
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+  output_job:
+    runs-on: ubuntu-latest
+    needs: setup
+    outputs:
+      embeds: ${{ steps.embeds.outputs.embed_content}}
+    steps:
+      - name: generate embeds
+        id: embeds
+        run: |
+          echo "embed_content={'conent': Test message'}" >> $GITHUB_OUTPUT
+
+  discord:
+    runs-on: ubuntu-latest
+    needs: output_job
+    steps:
+      - name: discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
+          DISCORD_EMBEDS: ${{ toJson(needs.output_job.outputs) }}
+        uses: Ilshidur/action-discord@master
+        #with:
+        #  args: "Pushed! ${{ toJson(needs.output_job.outputs) }}"

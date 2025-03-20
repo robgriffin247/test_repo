@@ -1,35 +1,34 @@
-name: On Push
+name: Webhook on Event
 
 on: push
 
 jobs:
-
-  setup:
+  # ID of our job
+  webhook-request:
+    # OS to run our job on
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v4
-
-  output_job:
-    runs-on: ubuntu-latest
-    needs: setup
-    outputs:
-      embeds: ${{ steps.embeds.outputs.embed_content}}
-    steps:
-      - name: generate embeds
-        id: embeds
-        run: |
-          echo "embed_content={'conent': Test message'}" >> $GITHUB_OUTPUT
-
-  discord:
-    runs-on: ubuntu-latest
-    needs: output_job
-    steps:
-      - name: discord notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME }}
-          DISCORD_EMBEDS: ${{ toJson(needs.output_job.outputs) }}
-        uses: Ilshidur/action-discord@master
-        #with:
-        #  args: "Pushed! ${{ toJson(needs.output_job.outputs) }}"
+    - name: Send a request to webhook
+      run: |
+        RESPONSE=$(curl -H "Content-Type: application/json" -X POST -d '{
+        "username": "GitHub",
+        "content": "@everyone",
+        "embeds": [
+          {
+            "type": "rich",
+            "title": "New Changes",
+            "description": "New changes on DroneGPS repository by ${{ github.actor }}",
+            "color": 2123412,
+            "thumbnail": {
+              "url": "https://avatars.githubusercontent.com/u/160980408?v=4"
+            },
+            "author": {
+              "name": "${{ github.actor }}",
+              "url": "https://github.com/${{ github.actor_id }}",
+              "icon_url": "https://avatars.githubusercontent.com/u/${{ github.actor_id }}?v=4"
+            },
+            "url": "https://github.com/***"
+          }
+        ]
+        }' ${{ secrets.WEBHOOK_URL }})
+        echo "Webhook server response: $RESPONSE"
