@@ -33,4 +33,4 @@ jobs:
           DISCORD_EMBEDS: ${{ toJson(needs.generate_output.outputs) }}
         uses: Ilshidur/action-discord@master
         with:
-          args: "Pushed! @griffinevo"
+          args: "Pushed! ${{ toJson(needs.generate_output.outputs) }}"
