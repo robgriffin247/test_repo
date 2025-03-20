@@ -1,9 +1,8 @@
 name: Reminder Service
 
-on:
-  - push
-  - schedule:
-      - cron: '20 * * * *'
+on: push
+  #schedule:
+  #  - cron: '20 * * * *'
 
 jobs:
   build:
