@@ -1,9 +1,10 @@
 name: Reminder Service
 
 on:
-  schedule:
-    - cron: '54 12 * * THU'
-
+  #schedule:
+  #  - cron: '5 13 * * THU'
+  push
+  
 jobs:
   build:
     runs-on: ubuntu-latest
