@@ -3,7 +3,8 @@ name: logging cron
 on:
   push:
   schedule:
-    - cron: '0 0 1 * *' # first of every month
+    - cron: '*/15 0 * * *' # first of every month
+    #- cron: '*30 5 1 * *' # 5:30 on first of every month
 
 jobs:
   build:
@@ -26,3 +27,11 @@ jobs:
       - name: log runs
         run: |
           python main.py
+      
+      - name: commit log
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: |
+          - actions_log.txt
+          authour_name: ${{ github.actor }}
+          ommmit_message: "Actions log updated"
