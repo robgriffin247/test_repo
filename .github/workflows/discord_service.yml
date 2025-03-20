@@ -2,18 +2,23 @@ name: Discord Service
 
 on:
   schedule:
-    - cron: '10/20 * * * *'
+    - cron: '11/20 * * * *'
   push:
 
 jobs:
+  get_trigger_type:
+    runs-on: ubuntu-latest
+    
+
   send_message:
     runs-on: ubuntu-latest
+    needs: get_trigger_type
     steps:
       - name: Send a request to webhook
         run: |
           RESPONSE=$(curl -H "Content-Type: application/json" -X POST -d '{
             "username": "PA",
-            "content": "Every 20 minutes:\n${{ github.event_name }}\n<@1004790342261936369>",
+            "content": "${{ github.event_name }}\n<@1004790342261936369>",
             "allowed_mentions": { "users": ["1004790342261936369"]}
           }' ${{ secrets.DISCORD_WEBHOOK }})
           echo "Webhook server response: $RESPONSE"
