@@ -16,8 +16,8 @@ jobs:
         "embeds": [
           {
             "type": "rich",
-            "title": "New Changes",
-            "description": "New changes on DroneGPS repository by ${{ github.actor }}",
+            "title": "My Message",
+            "description": "This is the content @griffinevo",
             "color": 2123412,
             "thumbnail": {
               "url": "https://avatars.githubusercontent.com/u/160980408?v=4"
@@ -30,5 +30,5 @@ jobs:
             "url": "https://github.com/***"
           }
         ]
-        }' ${{ secrets.WEBHOOK_URL }})
+        }' ${{ secrets.DISCORD_WEBHOOK }})
         echo "Webhook server response: $RESPONSE"
