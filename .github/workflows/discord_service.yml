@@ -6,8 +6,6 @@ on:
   push:
 
 jobs:
-
-    :
     runs-on: ubuntu-latest
     steps:
       - name: Send a request to webhook
